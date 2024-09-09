@@ -12,7 +12,7 @@ function StudentInfo(){
     return (
         <>
         <p>Chelsea Yang</p>
-        <Link href="https://github.com/chel-ocean/cprg306-assignments" target="_blank">Github Link</Link>
+        <Link href="https://github.com/chel-ocean/cprg306-assignments" target="_blank">https://github.com/chel-ocean/cprg306-assignments</Link>
         </>
     );
 }
