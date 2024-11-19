@@ -54,7 +54,7 @@ export default function Page() {
 
                 <select name="category" className="ml-5 border border-black h-10 rounded-md"
                 value={category}
-                onChange={(e) => setCategory(e.target.values)}>
+                onChange={(e) => setCategory(e.target.value)}>
                     <option value="produce">Produce</option>
                     <option value="dairy">Dairy</option>
                     <option value="meat">Meat</option>
