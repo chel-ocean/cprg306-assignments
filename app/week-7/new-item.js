@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Item from "../week-3/item";
+import Item from "./item.js";
 
-export default function NewItem() {
-    // week 4:
+export default function NewItem({onAddItem}) {
     let [quantity, setQuantity] = useState(1);
 
     const increment = () => {
@@ -19,16 +18,23 @@ export default function NewItem() {
         }
     };
 
-    // week 5:
     let [name, setName] = useState("");
 
     let [category, setCategory] = useState("produce");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        <Item name={name} quantity={quantity} category={category}/>
         console.log(name, quantity, category);
-        alert("Name: " + name + ", Quantity: " + quantity + ", Category: " + category);
+        // create random ID:
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let randomID = "";
+        for (let i = 0; i < 17; i++) {
+            randomID += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+
+        <Item id={randomID} name={name} quantity={quantity} category={category}/>
+
+        onAddItem({randomID, name, quantity, category});
         setName("");
         setQuantity(1);
         setCategory("produce");
