@@ -2,7 +2,7 @@
 import Item from "./item";
 import {useState} from "react";
 
-export default function ItemList({items, onDelete}){
+export default function ItemList({items, onDelete, onItemSelect}){
   const [sortBy, setSortBy] = useState("name");
   
   if (sortBy === "name"){
@@ -31,10 +31,12 @@ export default function ItemList({items, onDelete}){
           {items.map((item) => (
             <Item 
               key={item.id} 
-              id={item.id} name={item.name} 
+              id={item.id} 
+              name={item.name} 
               quantity={item.quantity} 
               category={item.category} 
-              onDelete={onDelete}/>
+              onDelete={onDelete}
+              onSelect={() => onItemSelect(item)}/>
           ))}
         </ul>
     </main>
